@@ -1,0 +1,45 @@
+# === CMake build artifacts ===
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# === Compiled binary artifacts ===
+*.o
+*.obj
+*.out
+*.a
+*.dylib
+*.so
+*.exe
+
+# === CTest cache ===
+Testing/
+CTestTestfile.cmake
+
+# === VSCode settings ===
+.vscode/
+.vscode/*
+
+# === macOS system files ===
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# === macOS Finder files ===
+Icon?
+._*
+
+# === macOS resource forks ===
+.Spotlight-V100
+.Trashes
+
+# === Backup and temp files ===
+*~
+*.swp
+*.tmp
+*.bak
+
+# === Logs ===
+*.log
