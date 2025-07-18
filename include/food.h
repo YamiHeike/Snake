@@ -8,9 +8,10 @@ private:
     Vector2 position;
     Texture2D texture;
 public:
-    Food(float x, float y);
+    Food();
     ~Food();
     void Draw();
+    Vector2 getRandomPosition();
 };
 
 #endif

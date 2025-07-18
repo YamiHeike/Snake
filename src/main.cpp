@@ -11,7 +11,7 @@ int main(void)
     InitWindow(CELL_SIZE * CELL_COUNT, CELL_SIZE * CELL_COUNT, "Snake");
     SetTargetFPS(60);
 
-    Food food = Food(5, 6);
+    Food food = Food();
 
     while(!WindowShouldClose()) 
     {
