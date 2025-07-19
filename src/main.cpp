@@ -2,9 +2,7 @@
 #include "colors.h"
 #include "food.h"
 #include "settings.h"
-
-typedef enum GameScreen { LOGO = 0, TITLE, GAMEPLAY, ENDING } GameScreen;
-
+#include "snake.h"
 
 int main(void)
 {
@@ -12,6 +10,7 @@ int main(void)
     SetTargetFPS(60);
 
     Food food = Food();
+    Snake snake = Snake();
 
     while(!WindowShouldClose()) 
     {
@@ -19,6 +18,7 @@ int main(void)
 
         ClearBackground(BACKGROUND);
         food.Draw();
+        snake.Draw();
 
         EndDrawing();
 
