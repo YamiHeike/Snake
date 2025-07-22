@@ -3,7 +3,7 @@
 #include "colors.h"
 #include "settings.h"
 
-const char* FOOD_IMAGE_PATH = "../assets/images/food.png";
+const char* FOOD_IMAGE_PATH = "../assets/images/apple.png";
 
 Food::Food() : position(getRandomPosition()) {
     Image image = LoadImage(FOOD_IMAGE_PATH);
