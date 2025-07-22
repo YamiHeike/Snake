@@ -5,11 +5,18 @@
 #include "settings.h"
 #include "colors.h"
 
+enum Direction {
+    UP, DOWN, LEFT, RIGHT
+};
+
 class Snake {
 private:
     std::deque<Vector2> body = {Vector2{6, 9}, Vector2{5,9}, Vector2{4, 9}};
+    Direction direction = RIGHT;
 public:
     void Draw();
+    void Update();
+    void SetDirection(Direction newDir);
 };
 
 #endif
