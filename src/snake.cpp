@@ -39,7 +39,21 @@ void Snake::SetDirection(Direction newDir)
     nextDirection = newDir;
 }
 
-Vector2 Snake::getHead()
+Vector2 Snake::GetHead()
 {
     return body[0];
+}
+
+unsigned int Snake::GetLength()
+{
+    return body.size();
+}
+
+bool Snake::IsInSnakeBody(Vector2 point)
+{
+    for(size_t cell = 0; cell < body.size(); cell++)
+    {
+        if(Vector2Equals(body[cell], point)) return true;
+    }
+    return false;
 }

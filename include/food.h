@@ -12,7 +12,7 @@ public:
     ~Food();
     void Draw();
     Vector2 GetPosition();
-    void GenerateNewPosition();
+    void GenerateNewPosition(Snake& snake);
     Vector2 GetRandomPosition();
 };
 

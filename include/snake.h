@@ -18,7 +18,9 @@ public:
     void Draw();
     void Update();
     void SetDirection(Direction newDir);
-    Vector2 getHead();
+    bool IsInSnakeBody(Vector2 point);
+    Vector2 GetHead();
+    unsigned int GetLength();
 };
 
 #endif

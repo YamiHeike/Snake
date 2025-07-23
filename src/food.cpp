@@ -1,6 +1,8 @@
 #include <raylib.h>
+#include <stdexcept>
 #include "food.h"
 #include "colors.h"
+#include "snake.h"
 #include "settings.h"
 
 const char* FOOD_IMAGE_PATH = "../assets/images/apple.png";
@@ -25,9 +27,21 @@ Vector2 Food::GetPosition()
     return position;
 }
 
-void Food::GenerateNewPosition()
+void Food::GenerateNewPosition(Snake& snake)
 {
-    position = GetRandomPosition();
+    const int maxAttempts = 1000;
+    int attempts = 0;
+    Vector2 newPos;
+    do 
+    {
+        newPos = GetRandomPosition();
+        attempts++;
+    } while(snake.IsInSnakeBody(newPos) && attempts < maxAttempts);
+    if(attempts >= maxAttempts)
+    {
+        throw std::runtime_error("Failed to place food: no valid positions left");
+    }
+    position = newPos;
 }
 
 Vector2 Food::GetRandomPosition()

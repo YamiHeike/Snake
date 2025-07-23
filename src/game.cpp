@@ -23,8 +23,8 @@ void Game::ChangeSnakeDirection(Direction newDir)
 
 void Game::CheckCollisionWithFood()
 {
-    if(Vector2Equals(snake.getHead(), food.GetPosition()))
+    if(Vector2Equals(snake.GetHead(), food.GetPosition()))
     {
-        food.GenerateNewPosition();
+        food.GenerateNewPosition(snake);
     }
 }
