@@ -5,7 +5,7 @@
 
 const char* FOOD_IMAGE_PATH = "../assets/images/apple.png";
 
-Food::Food() : position(getRandomPosition()) {
+Food::Food() : position(GetRandomPosition()) {
     Image image = LoadImage(FOOD_IMAGE_PATH);
     texture = LoadTextureFromImage(image);
     UnloadImage(image);
@@ -20,7 +20,17 @@ void Food::Draw()
     DrawTexture(texture, position.x * CELL_SIZE, position.y * CELL_SIZE, WHITE);
 }
 
-Vector2 Food::getRandomPosition()
+Vector2 Food::GetPosition()
+{
+    return position;
+}
+
+void Food::GenerateNewPosition()
+{
+    position = GetRandomPosition();
+}
+
+Vector2 Food::GetRandomPosition()
 {
     float x = GetRandomValue(0, CELL_COUNT - 1);
     float y = GetRandomValue(0, CELL_COUNT - 1);

@@ -37,3 +37,8 @@ void Snake::SetDirection(Direction newDir)
     }
     direction = newDir;
 }
+
+Vector2 Snake::getHead()
+{
+    return body[0];
+}

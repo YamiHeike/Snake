@@ -11,7 +11,9 @@ public:
     Food();
     ~Food();
     void Draw();
-    Vector2 getRandomPosition();
+    Vector2 GetPosition();
+    void GenerateNewPosition();
+    Vector2 GetRandomPosition();
 };
 
 #endif

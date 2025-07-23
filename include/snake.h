@@ -17,6 +17,7 @@ public:
     void Draw();
     void Update();
     void SetDirection(Direction newDir);
+    Vector2 getHead();
 };
 
 #endif

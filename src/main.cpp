@@ -1,8 +1,7 @@
 #include <raylib.h>
+#include "game.h"
 #include "colors.h"
-#include "food.h"
 #include "settings.h"
-#include "snake.h"
 
 double lastUpdateTime = 0;
 
@@ -21,25 +20,20 @@ int main(void)
 {
     InitWindow(CELL_SIZE * CELL_COUNT, CELL_SIZE * CELL_COUNT, "Snake");
     SetTargetFPS(60);
-
-    Food food = Food();
-    Snake snake = Snake();
-
+    Game game = Game();
     while(!WindowShouldClose()) 
     {
-        if(IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_W)) snake.SetDirection(UP);
-        if(IsKeyPressed(KEY_DOWN) || IsKeyPressed(KEY_S)) snake.SetDirection(DOWN);
-        if(IsKeyPressed(KEY_RIGHT) || IsKeyPressed(KEY_D)) snake.SetDirection(RIGHT);
-        if(IsKeyPressed(KEY_LEFT) || IsKeyPressed(KEY_A)) snake.SetDirection(LEFT);
-        
+        if(IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_W)) game.ChangeSnakeDirection(UP);
+        if(IsKeyPressed(KEY_DOWN) || IsKeyPressed(KEY_S)) game.ChangeSnakeDirection(DOWN);
+        if(IsKeyPressed(KEY_RIGHT) || IsKeyPressed(KEY_D)) game.ChangeSnakeDirection(RIGHT);
+        if(IsKeyPressed(KEY_LEFT) || IsKeyPressed(KEY_A)) game.ChangeSnakeDirection(LEFT);    
         BeginDrawing();
         if(eventTriggered(0.1)) 
         {
-            snake.Update();
+            game.Update();
         }
         ClearBackground(BACKGROUND);
-        food.Draw();
-        snake.Draw();
+        game.Draw();
         EndDrawing();
     }
 }
