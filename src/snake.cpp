@@ -22,6 +22,7 @@ void Snake::Draw()
 
 void Snake::Update() 
 {
+    direction = nextDirection;
     body.pop_back();
     Vector2 currentDirection = directionVectors[static_cast<int>(direction)];
     body.push_front(Vector2Add(body[0], currentDirection));
@@ -35,7 +36,7 @@ void Snake::SetDirection(Direction newDir)
         (direction == RIGHT && newDir == LEFT)) {
         return; 
     }
-    direction = newDir;
+    nextDirection = newDir;
 }
 
 Vector2 Snake::getHead()
