@@ -23,9 +23,14 @@ void Snake::Draw()
 void Snake::Update() 
 {
     direction = nextDirection;
-    body.pop_back();
-    Vector2 currentDirection = directionVectors[static_cast<int>(direction)];
-    body.push_front(Vector2Add(body[0], currentDirection));
+    body.push_front(Vector2Add(body[0], directionVectors[static_cast<int>(direction)]));
+    if(pendingGrowth == false) 
+    {
+        body.pop_back();
+    } else
+    {
+        pendingGrowth = false;
+    }
 }
 
 void Snake::SetDirection(Direction newDir)
@@ -56,4 +61,9 @@ bool Snake::IsInSnakeBody(Vector2 point)
         if(Vector2Equals(body[cell], point)) return true;
     }
     return false;
+}
+
+void Snake::Grow()
+{
+    pendingGrowth = true;
 }

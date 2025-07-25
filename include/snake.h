@@ -14,6 +14,7 @@ private:
     std::deque<Vector2> body = {Vector2{6, 9}, Vector2{5,9}, Vector2{4, 9}};
     Direction direction = RIGHT;
     Direction nextDirection = RIGHT;
+    bool pendingGrowth = false;
 public:
     void Draw();
     void Update();
@@ -21,6 +22,7 @@ public:
     bool IsInSnakeBody(Vector2 point);
     Vector2 GetHead();
     unsigned int GetLength();
+    void Grow();
 };
 
 #endif

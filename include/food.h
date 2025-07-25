@@ -2,6 +2,7 @@
 #define FOOD_H
 
 #include <raylib.h>
+#include "snake.h"
 
 class Food {
 private:

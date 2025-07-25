@@ -26,5 +26,6 @@ void Game::CheckCollisionWithFood()
     if(Vector2Equals(snake.GetHead(), food.GetPosition()))
     {
         food.GenerateNewPosition(snake);
+        snake.Grow();
     }
 }
