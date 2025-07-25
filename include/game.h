@@ -10,4 +10,6 @@ public:
     void Update();
     void ChangeSnakeDirection(Direction newDir);
     void CheckCollisionWithFood();
+    void CheckCollisionWithEdges();
+    void GameOver();
 };
