@@ -26,7 +26,11 @@ int main(void)
         if(IsKeyPressed(KEY_UP) || IsKeyPressed(KEY_W)) game.ChangeSnakeDirection(UP);
         if(IsKeyPressed(KEY_DOWN) || IsKeyPressed(KEY_S)) game.ChangeSnakeDirection(DOWN);
         if(IsKeyPressed(KEY_RIGHT) || IsKeyPressed(KEY_D)) game.ChangeSnakeDirection(RIGHT);
-        if(IsKeyPressed(KEY_LEFT) || IsKeyPressed(KEY_A)) game.ChangeSnakeDirection(LEFT);    
+        if(IsKeyPressed(KEY_LEFT) || IsKeyPressed(KEY_A)) game.ChangeSnakeDirection(LEFT);  
+        if(game.CheckGameOver() && GetKeyPressed())
+        {
+            game.PlayAgain();
+        }  
         BeginDrawing();
         if(eventTriggered(0.1)) 
         {

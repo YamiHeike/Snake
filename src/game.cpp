@@ -14,9 +14,13 @@ void Game::Draw()
 
 void Game::Update()
 {
-    snake.Update();
-    CheckCollisionWithFood();
-    CheckCollisionWithEdges();
+    if(running)
+    {
+        snake.Update();
+        CheckCollisionWithFood();
+        CheckCollisionWithEdges();
+        CheckCollisionWithTail();
+    }
 }
 
 void Game::ChangeSnakeDirection(Direction newDir)
@@ -42,8 +46,27 @@ void Game::CheckCollisionWithEdges()
     }
 }
 
-// TODO: implement game over logic
+void Game::CheckCollisionWithTail()
+{
+    if(snake.IsInSnakeBody(snake.GetHead(), false))
+    {
+        GameOver();
+    }
+}
+
 void Game::GameOver()
 {
-    std::cout << "Game over" << std::endl;
+    snake.Reset();
+    food.GenerateNewPosition(snake);
+    running = false;
+}
+
+bool Game::CheckGameOver()
+{
+    return !running;
+}
+
+void Game::PlayAgain()
+{
+    running = true;
 }

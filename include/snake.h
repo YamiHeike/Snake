@@ -11,18 +11,21 @@ enum Direction {
 
 class Snake {
 private:
-    std::deque<Vector2> body = {Vector2{6, 9}, Vector2{5,9}, Vector2{4, 9}};
+    static const std::deque<Vector2> INITIAL_SNAKE_BODY;
+    std::deque<Vector2> body = INITIAL_SNAKE_BODY;
     Direction direction = RIGHT;
     Direction nextDirection = RIGHT;
     bool pendingGrowth = false;
+    std::deque<Vector2> GetHeadlessBody() const;
 public:
     void Draw();
     void Update();
     void SetDirection(Direction newDir);
-    bool IsInSnakeBody(Vector2 point);
-    Vector2 GetHead();
-    unsigned int GetLength();
+    bool IsInSnakeBody(Vector2 point, bool includeHead = true) const;
+    Vector2 GetHead() const;
+    unsigned int GetLength() const;
     void Grow();
+    void Reset();
 };
 
 #endif
