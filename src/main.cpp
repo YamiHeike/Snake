@@ -18,7 +18,7 @@ bool eventTriggered(double interval)
 
 int main(void)
 {
-    InitWindow(CELL_SIZE * CELL_COUNT, CELL_SIZE * CELL_COUNT, "Snake");
+    InitWindow(2 * OFFSET + CELL_SIZE * CELL_COUNT, 2 * OFFSET + CELL_SIZE * CELL_COUNT, "Snake");
     SetTargetFPS(60);
     Game game = Game();
     while(!WindowShouldClose()) 
@@ -37,6 +37,9 @@ int main(void)
             game.Update();
         }
         ClearBackground(BACKGROUND);
+        DrawRectangleLinesEx(Rectangle{static_cast<float>(OFFSET - 5), static_cast<float>(OFFSET -5), static_cast<float>(CELL_SIZE * CELL_COUNT + 10), static_cast<float>(CELL_SIZE * CELL_COUNT + 10)}, 5, ACCENT);
+        int fontSize = 40;
+        DrawText("SNAKE", OFFSET, 20, fontSize, ACCENT);
         game.Draw();
         EndDrawing();
     }

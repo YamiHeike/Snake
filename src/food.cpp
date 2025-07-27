@@ -19,7 +19,7 @@ Food::~Food() {
 
 void Food::Draw() 
 {
-    DrawTexture(texture, position.x * CELL_SIZE, position.y * CELL_SIZE, WHITE);
+    DrawTexture(texture, OFFSET + position.x * CELL_SIZE, OFFSET + position.y * CELL_SIZE, WHITE);
 }
 
 Vector2 Food::GetPosition()
