@@ -28,12 +28,18 @@ void Game::ChangeSnakeDirection(Direction newDir)
     snake.SetDirection(newDir);
 }
 
+bool Game::CheckGameOver()
+{
+    return !running;
+}
+
 void Game::CheckCollisionWithFood()
 {
     if(Vector2Equals(snake.GetHead(), food.GetPosition()))
     {
         food.GenerateNewPosition(snake);
         snake.Grow();
+        score++;
     }
 }
 
@@ -58,12 +64,13 @@ void Game::GameOver()
 {
     snake.Reset();
     food.GenerateNewPosition(snake);
+    score = 0;
     running = false;
 }
 
-bool Game::CheckGameOver()
+int Game::GetScore() const
 {
-    return !running;
+    return score;
 }
 
 void Game::PlayAgain()

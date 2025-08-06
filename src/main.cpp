@@ -40,6 +40,7 @@ int main(void)
         DrawRectangleLinesEx(Rectangle{static_cast<float>(OFFSET - 5), static_cast<float>(OFFSET -5), static_cast<float>(CELL_SIZE * CELL_COUNT + 10), static_cast<float>(CELL_SIZE * CELL_COUNT + 10)}, 5, ACCENT);
         int fontSize = 40;
         DrawText("SNAKE", OFFSET, 20, fontSize, ACCENT);
+        DrawText(TextFormat("%i", game.GetScore()), OFFSET - 5, OFFSET + CELL_SIZE*CELL_COUNT + 10, 40, ACCENT);
         game.Draw();
         EndDrawing();
     }
