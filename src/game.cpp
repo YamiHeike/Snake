@@ -6,6 +6,20 @@
 
 #include <iostream>
 
+Game::Game()
+{
+    InitAudioDevice();
+    eatSound = LoadSound("../assets/sounds/eat.mp3");
+    wallSound = LoadSound("../assets/sounds/wall.mp3");
+}
+
+Game::~Game()
+{
+    UnloadSound(eatSound);
+    UnloadSound(wallSound);
+    CloseAudioDevice();
+}
+
 void Game::Draw()
 {
     food.Draw();
@@ -40,6 +54,7 @@ void Game::CheckCollisionWithFood()
         food.GenerateNewPosition(snake);
         snake.Grow();
         score++;
+        PlaySound(eatSound);
     }
 }
 
@@ -66,6 +81,7 @@ void Game::GameOver()
     food.GenerateNewPosition(snake);
     score = 0;
     running = false;
+    PlaySound(wallSound);
 }
 
 int Game::GetScore() const

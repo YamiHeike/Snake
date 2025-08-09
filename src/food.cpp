@@ -19,8 +19,7 @@ Food::~Food() {
 
 void Food::Draw() 
 {
-    // DrawTexture(texture, OFFSET + position.x * CELL_SIZE, OFFSET + position.y * CELL_SIZE, WHITE);
-    float scale = 30.0f / texture.width;  // Scale from 32 to 30
+    float scale = 30.0f / texture.width; 
     Vector2 drawPos = {
         OFFSET + position.x * CELL_SIZE,
         OFFSET + position.y * CELL_SIZE

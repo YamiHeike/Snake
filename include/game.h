@@ -7,7 +7,11 @@ private:
     Food food = Food();
     bool running = true;
     int score = 0;
+    Sound eatSound;
+    Sound wallSound;
 public:
+    Game();
+    ~Game();
     void Draw();
     void Update();
     void ChangeSnakeDirection(Direction newDir);
