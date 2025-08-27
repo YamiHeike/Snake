@@ -1,3 +1,6 @@
+#ifndef GAME_H
+
+#define GAME_H
 #include "food.h"
 #include "snake.h"
 
@@ -23,3 +26,5 @@ public:
     int GetScore() const;
     void PlayAgain();
 };
+
+#endif

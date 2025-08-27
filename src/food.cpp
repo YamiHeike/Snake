@@ -4,6 +4,7 @@
 #include "colors.h"
 #include "snake.h"
 #include "settings.h"
+#include "utils.h"
 
 const char* FOOD_IMAGE_PATH = "../assets/images/apple.png";
 
@@ -24,8 +25,7 @@ void Food::Draw()
         OFFSET + position.x * CELL_SIZE,
         OFFSET + position.y * CELL_SIZE
     };
-
-    DrawTextureEx(texture, drawPos, 0.0f, scale, WHITE);
+    drawScaled(texture, drawPos);
 }
 
 Vector2 Food::GetPosition()

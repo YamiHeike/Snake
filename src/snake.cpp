@@ -4,6 +4,7 @@
 #include <iostream>
 #include "snake.h"
 #include "snake_textures.h"
+#include "utils.h"
 
 
 const Vector2 directionVectors[] = {
@@ -44,12 +45,21 @@ Snake::~Snake()
 
 void Snake::Draw() 
 {
-    DrawTexture(headImg, OFFSET + body[0].x * CELL_SIZE, OFFSET + body[0].y * CELL_SIZE, WHITE);
+    drawScaled(headImg, Vector2{
+        OFFSET + body[0].x * CELL_SIZE,
+        OFFSET + body[0].y * CELL_SIZE
+    });
     for(size_t i = 1; i < body.size() - 1; i++)
     {
-        DrawTexture(bodyImgs[i - 1], OFFSET + body[i].x * CELL_SIZE, OFFSET + body[i].y * CELL_SIZE, WHITE);
+        drawScaled(bodyImgs[i - 1], Vector2{
+            OFFSET + body[i].x * CELL_SIZE,
+            OFFSET + body[i].y * CELL_SIZE
+        });
     }
-    DrawTexture(tailImg, OFFSET + body.back().x * CELL_SIZE, OFFSET + body.back().y * CELL_SIZE, WHITE);
+    drawScaled(tailImg, Vector2{
+        OFFSET + body.back().x * CELL_SIZE,
+        OFFSET + body.back().y * CELL_SIZE
+    });
 }
 
 void Snake::Update() 
